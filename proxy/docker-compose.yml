@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  web:
+    external: true
+
+services:
+  spotifyproxy:
+    hostname: spotifyproxy
+    image: ghcr.io/conradludgate/spotify-auth-proxy:latest
+    env_file:
+      - ./.env
+    restart: unless-stopped
+    networks:
+      - web
+    labels:
+      - traefik.http.routers.spotifyproxy.rule=Host(``)
+      - traefik.http.routers.spotifyproxy.entrypoints=https
+      - traefik.http.routers.spotifyproxy.tls=true
+      - traefik.http.routers.spotifyproxy.tls.certresolver=letsencrypt
+      - traefik.http.services.spotifyproxy-spotifyproxy.loadbalancer.server.port=27228
