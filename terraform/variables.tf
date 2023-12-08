@@ -1,7 +1,7 @@
-variable "spotify_api_key" {
+variable "SPOTIFY_API_KEY" {
   type = string
 }
 
-variable "spotify_auth_proxy_url" {
+variable "SPOTIFY_AUTH_PROXY_URL" {
   type = string
 }
