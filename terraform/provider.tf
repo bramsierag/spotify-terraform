@@ -7,6 +7,6 @@ terraform {
 }
 
 provider "spotify" {
-  api_key = var.spotify_api_key
-  auth_server = var.spotify_auth_proxy_url
+  api_key = var.SPOTIFY_API_KEY
+  auth_server = var.SPOTIFY_AUTH_PROXY_URL
 }
